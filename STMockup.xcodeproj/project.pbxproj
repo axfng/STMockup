@@ -11,6 +11,7 @@
 		AB0666D92C7913AE0091132C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0666D82C7913AE0091132C /* ContentView.swift */; };
 		AB0666DB2C7913B00091132C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0666DA2C7913B00091132C /* Assets.xcassets */; };
 		AB0666DE2C7913B00091132C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0666DD2C7913B00091132C /* Preview Assets.xcassets */; };
+		ABD4B9932C7BC05700FB6E03 /* mockup_article.json in Resources */ = {isa = PBXBuildFile; fileRef = ABD4B9922C7BC05700FB6E03 /* mockup_article.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		AB0666D82C7913AE0091132C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AB0666DA2C7913B00091132C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB0666DD2C7913B00091132C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		ABD4B9922C7BC05700FB6E03 /* mockup_article.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockup_article.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				AB0666D62C7913AE0091132C /* STMockupApp.swift */,
 				AB0666D82C7913AE0091132C /* ContentView.swift */,
+				ABD4B9922C7BC05700FB6E03 /* mockup_article.json */,
 				AB0666DA2C7913B00091132C /* Assets.xcassets */,
 				AB0666DC2C7913B00091132C /* Preview Content */,
 			);
@@ -127,6 +130,7 @@
 			files = (
 				AB0666DE2C7913B00091132C /* Preview Assets.xcassets in Resources */,
 				AB0666DB2C7913B00091132C /* Assets.xcassets in Resources */,
+				ABD4B9932C7BC05700FB6E03 /* mockup_article.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
