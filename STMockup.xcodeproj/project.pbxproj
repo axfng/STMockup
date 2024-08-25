@@ -15,6 +15,12 @@
 		ABD4B9952C7BC28D00FB6E03 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */; };
 		ABD4B9992C7BC3D900FB6E03 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9982C7BC3D900FB6E03 /* Bundle-Decodable.swift */; };
 		ABD4B99B2C7BC53300FB6E03 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B99A2C7BC53300FB6E03 /* Article.swift */; };
+		ABD4B9AB2C7BD90900FB6E03 /* ScienceNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9AA2C7BD90900FB6E03 /* ScienceNewsView.swift */; };
+		ABD4B9AD2C7BD91500FB6E03 /* ScienceMythsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9AC2C7BD91500FB6E03 /* ScienceMythsView.swift */; };
+		ABD4B9AF2C7BD92E00FB6E03 /* ScienceSparknotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9AE2C7BD92E00FB6E03 /* ScienceSparknotesView.swift */; };
+		ABD4B9B12C7BD93D00FB6E03 /* AboutUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9B02C7BD93D00FB6E03 /* AboutUsView.swift */; };
+		ABD4B9B32C7BD94800FB6E03 /* GetInvolvedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9B22C7BD94800FB6E03 /* GetInvolvedView.swift */; };
+		ABD4B9B52C7BD95500FB6E03 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9B42C7BD95500FB6E03 /* ContactUsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +33,12 @@
 		ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleView.swift; sourceTree = "<group>"; };
 		ABD4B9982C7BC3D900FB6E03 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 		ABD4B99A2C7BC53300FB6E03 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
+		ABD4B9AA2C7BD90900FB6E03 /* ScienceNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceNewsView.swift; sourceTree = "<group>"; };
+		ABD4B9AC2C7BD91500FB6E03 /* ScienceMythsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceMythsView.swift; sourceTree = "<group>"; };
+		ABD4B9AE2C7BD92E00FB6E03 /* ScienceSparknotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScienceSparknotesView.swift; sourceTree = "<group>"; };
+		ABD4B9B02C7BD93D00FB6E03 /* AboutUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutUsView.swift; sourceTree = "<group>"; };
+		ABD4B9B22C7BD94800FB6E03 /* GetInvolvedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInvolvedView.swift; sourceTree = "<group>"; };
+		ABD4B9B42C7BD95500FB6E03 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +71,7 @@
 		AB0666D52C7913AE0091132C /* STMockup */ = {
 			isa = PBXGroup;
 			children = (
+				ABD4B9A92C7BD8EB00FB6E03 /* SubViews */,
 				AB0666D62C7913AE0091132C /* STMockupApp.swift */,
 				AB0666D82C7913AE0091132C /* ContentView.swift */,
 				ABD4B99A2C7BC53300FB6E03 /* Article.swift */,
@@ -77,6 +90,19 @@
 				AB0666DD2C7913B00091132C /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABD4B9A92C7BD8EB00FB6E03 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				ABD4B9AA2C7BD90900FB6E03 /* ScienceNewsView.swift */,
+				ABD4B9AC2C7BD91500FB6E03 /* ScienceMythsView.swift */,
+				ABD4B9AE2C7BD92E00FB6E03 /* ScienceSparknotesView.swift */,
+				ABD4B9B02C7BD93D00FB6E03 /* AboutUsView.swift */,
+				ABD4B9B22C7BD94800FB6E03 /* GetInvolvedView.swift */,
+				ABD4B9B42C7BD95500FB6E03 /* ContactUsView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,10 +176,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD4B9AB2C7BD90900FB6E03 /* ScienceNewsView.swift in Sources */,
 				AB0666D92C7913AE0091132C /* ContentView.swift in Sources */,
 				ABD4B9952C7BC28D00FB6E03 /* ArticleView.swift in Sources */,
+				ABD4B9B52C7BD95500FB6E03 /* ContactUsView.swift in Sources */,
+				ABD4B9AD2C7BD91500FB6E03 /* ScienceMythsView.swift in Sources */,
 				AB0666D72C7913AE0091132C /* STMockupApp.swift in Sources */,
+				ABD4B9AF2C7BD92E00FB6E03 /* ScienceSparknotesView.swift in Sources */,
 				ABD4B9992C7BC3D900FB6E03 /* Bundle-Decodable.swift in Sources */,
+				ABD4B9B12C7BD93D00FB6E03 /* AboutUsView.swift in Sources */,
+				ABD4B9B32C7BD94800FB6E03 /* GetInvolvedView.swift in Sources */,
 				ABD4B99B2C7BC53300FB6E03 /* Article.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
