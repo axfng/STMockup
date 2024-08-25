@@ -17,6 +17,7 @@ struct ContentView: View {
         }
     }
     
+    let articles: [Article] = Bundle.main.decode("mockup_article.json")
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -31,9 +32,16 @@ struct ContentView: View {
                         HStack {
                             
                         }
-//                        ForEach {
-//
-//                        }
+                        ForEach(articles) { article in
+                            NavigationLink {
+                                ArticleView()
+                            } label: {
+                                VStack {
+                                    Image(article.id)
+                                }
+                            }
+
+                        }
                     }
                 }
             }
