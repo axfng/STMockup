@@ -87,19 +87,28 @@ struct ContentView: View {
                             VStack {
                                 Text(article.title)
                                     .foregroundStyle(.black)
-                                    .font(.headline.bold())
-                                Image(article.id)
-                                    .resizable()
-                                    .padding(.horizontal, 10)
-                                HStack {
-                                    Text(article.formattedPublishDate)
-                                    Spacer()
-                                    Text(article.author)
+                                    .font(.title2.bold())
+                                VStack {
+                                    Text(article.preview)
+                                        .foregroundStyle(.black)
+                                        .font(.caption2)
+                                        .multilineTextAlignment(.leading)
+                                    
+                                    
+                                    Image(article.id)
+                                        .resizable()
+                                    
+                                    HStack {
+                                        Text(article.formattedPublishDate)
+                                        Spacer()
+                                        Text(article.author)
+                                    }
+                                    .font(.caption2)
+                                    .foregroundStyle(.black)
                                 }
-                                .font(.caption2)
-                                .foregroundStyle(.black)
-                                .padding(.horizontal, 12)
-                            }
+                                .padding(.horizontal, 10)
+                           }
+                            .padding(.horizontal, 10)
                         }
                     }
                 }

@@ -12,6 +12,7 @@ struct Article: Codable, Identifiable {
     let author: String
     let title: String
     let publishDate: Date?
+    let preview: String
     let body: String
     
     var image: String {
