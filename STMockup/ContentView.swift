@@ -56,7 +56,7 @@ struct ContentView: View {
                         NavigationLink {
                             ContactUsView()
                         } label: {
-                            Text("Contact Us |")
+                            Text("Contact Us")
                         }
                     }
                     .foregroundStyle(.black)
@@ -88,6 +88,7 @@ struct ContentView: View {
                                 Text(article.title)
                                     .foregroundStyle(.black)
                                     .font(.title2.bold())
+                                    
                                 VStack {
                                     Text(article.preview)
                                         .foregroundStyle(.black)
@@ -114,12 +115,12 @@ struct ContentView: View {
                 }
             }
             // toggle between grid and list view
+            .navigationTitle("Science, Translated")
             .toolbar {
                 Button(changeView) {
                     showGridView.toggle()
                 }
             }
-            .navigationTitle("Science, Translated")
         }
     }
 }

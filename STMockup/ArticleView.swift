@@ -13,21 +13,43 @@ struct Content: Codable {
 
 struct ArticleView: View {
     let article: Article
+    let authors: [Author] = Bundle.main.decode("mockup_author.json")
     
     var body: some View {
         NavigationStack {
             ScrollView {
                 VStack {
+                    
                     // title, image, body
                     Text(article.title)
                         .font(.title.bold())
                     Image(article.id)
                         .resizable()
                         .padding(.horizontal, 15)
+                    HStack {
+                        Image(article.author)
+                            .resizable()
+                            .frame(width: 150, height: 150)
+                    }
+                    HStack {
+                        Text(article.formattedPublishDate)
+                        Spacer()
+                        Text(article.author)
+                    }
+                    .font(.caption2)
+                    .foregroundStyle(.black)
+                    .padding(.horizontal, 18)
                     parseCustomTags(article.body)
                         .padding()
                     HStack {
-                        // authors
+                        NavigationLink {
+                            AuthorView()
+                        } label : {
+                            HStack {
+                                Image(article.author)
+                                    .frame(width: 10, height: 10)
+                            }
+                        }
                     }
                 }
             }
