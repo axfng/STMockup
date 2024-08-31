@@ -17,6 +17,7 @@ struct ContentView: View {
         }
     }
     
+    let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
     let articles: [Article] = Bundle.main.decode("mockup_article.json")
     
     let columns = [
@@ -68,7 +69,7 @@ struct ContentView: View {
                     LazyVGrid(columns: columns){
                         ForEach(articles) { article in
                             NavigationLink {
-                                ArticleView(article: article)
+                                ArticleView(article: article, authors: authors)
                             } label: {
                                 VStack {
                                     Image(article.id)
@@ -82,10 +83,10 @@ struct ContentView: View {
                 } else {
                     ForEach(articles) { article in
                         NavigationLink {
-                            ArticleView(article: article)
+                            ArticleView(article: article, authors: authors)
                         } label: {
                             VStack {
-                                Text(article.title)
+                                Text(article.id)
                                     .foregroundStyle(.black)
                                     .font(.title2.bold())
                                     
@@ -102,7 +103,7 @@ struct ContentView: View {
                                     HStack {
                                         Text(article.formattedPublishDate)
                                         Spacer()
-                                        Text(article.author)
+                                        Text(article.id)
                                     }
                                     .font(.caption2)
                                     .foregroundStyle(.black)

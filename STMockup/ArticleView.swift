@@ -7,13 +7,14 @@
 
 import SwiftUI
 
-struct Content: Codable {
-    let content: String
-}
-
 struct ArticleView: View {
+    struct TheAuthor {
+        let bio: String
+        let author: Author
+    }
+    
     let article: Article
-    let authors: [Author] = Bundle.main.decode("mockup_author.json")
+    let crew: [TheAuthor]
     
     var body: some View {
         NavigationStack {
@@ -27,34 +28,46 @@ struct ArticleView: View {
                         .resizable()
                         .padding(.horizontal, 15)
                     HStack {
-                        Image(article.author)
-                            .resizable()
-                            .frame(width: 150, height: 150)
+                        NavigationLink {
+                            AuthorView()
+                        } label : {
+                            Image(article.id)
+                                .resizable()
+                                .frame(width: 150, height: 150)
+                                .clipShape(.circle)
+                            VStack {
+                                Text(article.title)
+                            }
+                            Spacer()
+                        }
+                        .padding()
                     }
                     HStack {
                         Text(article.formattedPublishDate)
                         Spacer()
-                        Text(article.author)
+                        Text(article.id)
                     }
                     .font(.caption2)
                     .foregroundStyle(.black)
                     .padding(.horizontal, 18)
                     parseCustomTags(article.body)
                         .padding()
-                    HStack {
-                        NavigationLink {
-                            AuthorView()
-                        } label : {
-                            HStack {
-                                Image(article.author)
-                                    .frame(width: 10, height: 10)
-                            }
-                        }
-                    }
                 }
             }
         }
     }
+    
+    init(article: Article, authors: [String: Author]) {
+        self.article = article
+        self.crew = article.crew.map {member in
+            if let author = authors[member.name] {
+                return TheAuthor(bio: author.bio, author: author)
+            } else {
+                fatalError("Missing member name")
+            }
+        }
+    }
+    
     
     // Parsing to bold highlighted text on body
     func parseCustomTags(_ text: String) -> Text {
@@ -79,6 +92,7 @@ struct ArticleView: View {
 
 #Preview {
     let articles: [Article] = Bundle.main.decode("mockup_article.json")
+    let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
     
-    return ArticleView(article: articles[0])
+    return ArticleView(article: articles[0], authors: authors)
 }

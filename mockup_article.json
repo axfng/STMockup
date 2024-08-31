@@ -1,7 +1,11 @@
 [
     {
         "id": "aptamersAndFluorescentLights",
-        "author": "Alex Feng",
+        "crew": [
+            {
+                "name": "Alex Feng"
+            }
+        ],
         "title": "Aptamers & Fluorescent Lights: The Keys to Disease Diagnosis?",
         "publishDate": "2023-01-29",
         "preview": "Did you know that every three seconds, someone in the world develops dementia? With cases at more than 55 million worldwide, this figure is projected to skyrocket in the coming decades as the elderly population increases.",

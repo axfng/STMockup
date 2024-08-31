@@ -8,8 +8,12 @@
 import Foundation
 
 struct Article: Codable, Identifiable {
+    struct AuthorInfo: Codable {
+        let name: String
+    }
+    
     let id: String
-    let author: String
+    let crew: [AuthorInfo]
     let title: String
     let publishDate: Date?
     let preview: String
