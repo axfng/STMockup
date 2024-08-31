@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct ArticleView: View {
-    struct TheAuthor {
+    struct contributor {
         let bio: String
         let author: Author
     }
     
     let article: Article
-    let crew: [TheAuthor]
+    let contributors: [contributor]
     
     var body: some View {
         NavigationStack {
@@ -28,21 +28,6 @@ struct ArticleView: View {
                         .resizable()
                         .padding(.horizontal, 15)
                     HStack {
-                        NavigationLink {
-                            AuthorView()
-                        } label : {
-                            Image(article.id)
-                                .resizable()
-                                .frame(width: 150, height: 150)
-                                .clipShape(.circle)
-                            VStack {
-                                Text(article.title)
-                            }
-                            Spacer()
-                        }
-                        .padding()
-                    }
-                    HStack {
                         Text(article.formattedPublishDate)
                         Spacer()
                         Text(article.id)
@@ -50,8 +35,27 @@ struct ArticleView: View {
                     .font(.caption2)
                     .foregroundStyle(.black)
                     .padding(.horizontal, 18)
+                    
                     parseCustomTags(article.body)
+                        .padding(.horizontal, 18)
+                }
+                HStack {
+                    ForEach(contributors, id: \.bio) { contributor in
+                        NavigationLink {
+                            AuthorView(author: contributor.author)
+                        } label: {
+                            Image(contributor.author.id)
+                                .resizable()
+                                .frame(width: 75, height: 75)
+                                .clipShape(.circle)
+                            VStack {
+                                Text(contributor.bio)
+                                    .sTCaption()
+                            }
+                            Spacer()
+                        }
                         .padding()
+                    }
                 }
             }
         }
@@ -59,9 +63,9 @@ struct ArticleView: View {
     
     init(article: Article, authors: [String: Author]) {
         self.article = article
-        self.crew = article.crew.map {member in
+        self.contributors = article.contributors.map {member in
             if let author = authors[member.name] {
-                return TheAuthor(bio: author.bio, author: author)
+                return contributor(bio: author.bio, author: author)
             } else {
                 fatalError("Missing member name")
             }

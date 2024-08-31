@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct AuthorView: View {
+    let author: Author
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack {
+            ScrollView {
+                VStack {
+                    Text(author.id)
+                        .font(.largeTitle)
+                    Image(author.id)
+                        .resizable()
+                        .frame(width: 360, height: 360)
+                    Text(author.bio)
+                }
+                .padding()
+            }
+            .navigationTitle("Author Bio")
+        }
     }
 }
 
 #Preview {
-    AuthorView()
+    let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
+    return AuthorView(author: authors["Alex Feng"]!)
 }

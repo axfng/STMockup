@@ -86,17 +86,13 @@ struct ContentView: View {
                             ArticleView(article: article, authors: authors)
                         } label: {
                             VStack {
-                                Text(article.id)
+                                Text(article.title)
                                     .foregroundStyle(.black)
                                     .font(.title2.bold())
                                     
                                 VStack {
                                     Text(article.preview)
-                                        .foregroundStyle(.black)
-                                        .font(.caption2)
-                                        .multilineTextAlignment(.leading)
-                                    
-                                    
+                                        .sTCaption()
                                     Image(article.id)
                                         .resizable()
                                     

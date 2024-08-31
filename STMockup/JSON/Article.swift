@@ -13,7 +13,7 @@ struct Article: Codable, Identifiable {
     }
     
     let id: String
-    let crew: [AuthorInfo]
+    let contributors: [AuthorInfo]
     let title: String
     let publishDate: Date?
     let preview: String
