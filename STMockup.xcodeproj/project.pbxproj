@@ -11,7 +11,6 @@
 		AB0666D92C7913AE0091132C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0666D82C7913AE0091132C /* ContentView.swift */; };
 		AB0666DB2C7913B00091132C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0666DA2C7913B00091132C /* Assets.xcassets */; };
 		AB0666DE2C7913B00091132C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB0666DD2C7913B00091132C /* Preview Assets.xcassets */; };
-		ABD4B9952C7BC28D00FB6E03 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */; };
 		ABD4B9992C7BC3D900FB6E03 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9982C7BC3D900FB6E03 /* Bundle-Decodable.swift */; };
 		ABD4B99B2C7BC53300FB6E03 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B99A2C7BC53300FB6E03 /* Article.swift */; };
 		ABD4B9AB2C7BD90900FB6E03 /* ScienceNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9AA2C7BD90900FB6E03 /* ScienceNewsView.swift */; };
@@ -25,6 +24,7 @@
 		ABD4B9C22C7FAE8E00FB6E03 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9C12C7FAE8E00FB6E03 /* AuthorView.swift */; };
 		ABD4B9C62C83768B00FB6E03 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9C52C83768B00FB6E03 /* Styles.swift */; };
 		ABD4B9CC2C8382DC00FB6E03 /* mockup_article.json in Resources */ = {isa = PBXBuildFile; fileRef = ABD4B9CB2C8382DC00FB6E03 /* mockup_article.json */; };
+		ABD4B9CF2C8385A800FB6E03 /* ArticleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +87,8 @@
 				ABD4B9A92C7BD8EB00FB6E03 /* SubViews */,
 				AB0666D62C7913AE0091132C /* STMockupApp.swift */,
 				AB0666D82C7913AE0091132C /* ContentView.swift */,
+				ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */,
+				ABD4B9C12C7FAE8E00FB6E03 /* AuthorView.swift */,
 				AB0666DA2C7913B00091132C /* Assets.xcassets */,
 				ABD4B9B72C7ED4B600FB6E03 /* Info.plist */,
 				AB0666DC2C7913B00091132C /* Preview Content */,
@@ -110,9 +112,7 @@
 				ABD4B9AE2C7BD92E00FB6E03 /* ScienceSparknotesView.swift */,
 				ABD4B9B02C7BD93D00FB6E03 /* AboutUsView.swift */,
 				ABD4B9B22C7BD94800FB6E03 /* GetInvolvedView.swift */,
-				ABD4B9942C7BC28D00FB6E03 /* ArticleView.swift */,
 				ABD4B9B42C7BD95500FB6E03 /* ContactUsView.swift */,
-				ABD4B9C12C7FAE8E00FB6E03 /* AuthorView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -222,9 +222,9 @@
 				ABD4B9AB2C7BD90900FB6E03 /* ScienceNewsView.swift in Sources */,
 				ABD4B9C62C83768B00FB6E03 /* Styles.swift in Sources */,
 				AB0666D92C7913AE0091132C /* ContentView.swift in Sources */,
-				ABD4B9952C7BC28D00FB6E03 /* ArticleView.swift in Sources */,
 				ABD4B9B52C7BD95500FB6E03 /* ContactUsView.swift in Sources */,
 				ABD4B9C22C7FAE8E00FB6E03 /* AuthorView.swift in Sources */,
+				ABD4B9CF2C8385A800FB6E03 /* ArticleView.swift in Sources */,
 				ABD4B9AD2C7BD91500FB6E03 /* ScienceMythsView.swift in Sources */,
 				AB0666D72C7913AE0091132C /* STMockupApp.swift in Sources */,
 				ABD4B9C02C7FADE800FB6E03 /* Author.swift in Sources */,
