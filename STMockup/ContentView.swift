@@ -30,8 +30,8 @@ struct ContentView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 let links: [(AnyView, String)] = [
                     (AnyView(ScienceNewsView(articles: articles)), "Science News |"),
-                    (AnyView(ScienceMythsView()), "Science Myths |"),
-                    (AnyView(ScienceSparknotesView()), "Science Sparknotes |"),
+                    (AnyView(ScienceMythsView(articles: articles)), "Science Myths |"),
+                    (AnyView(ScienceSparknotesView(articles: articles)), "Science Sparknotes |"),
                     (AnyView(AboutUsView()), "About Us |"),
                     (AnyView(GetInvolvedView()), "Get Involved |"),
                     (AnyView(ContactUsView()), "Contact Us")

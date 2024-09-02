@@ -9,10 +9,8 @@ import SwiftUI
 
 struct ScienceNewsView: View {
     let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
-    var articles: [Article]
-    
-    let acceptedCategories = ["Health and Medicine", "Chemistry and Biochemstry", "Matter Energy and Astronomy", "Society and Psychology", "Environment and Ecology"]
-    var acceptedArticles: [Article]
+    let articles: [Article]
+    let acceptedArticles: [Article]
     
     var body: some View {
         NavigationStack {
