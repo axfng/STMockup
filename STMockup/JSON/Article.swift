@@ -15,6 +15,7 @@ struct Article: Codable, Identifiable {
     let id: String
     let contributors: [AuthorInfo]
     let title: String
+    let category: String
     let publishDate: Date?
     let preview: String
     let body: String

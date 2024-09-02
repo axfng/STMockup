@@ -19,14 +19,6 @@ struct ContentView: View {
     
     let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
     let articles: [Article] = Bundle.main.decode("mockup_article.json")
-    let links: [(AnyView, String)] = [
-        (AnyView(ScienceNewsView()), "Science News |"),
-        (AnyView(ScienceMythsView()), "Science Myths |"),
-        (AnyView(ScienceSparknotesView()), "Science Sparknotes |"),
-        (AnyView(AboutUsView()), "About Us |"),
-        (AnyView(GetInvolvedView()), "Get Involved |"),
-        (AnyView(ContactUsView()), "Contact Us")
-    ]
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -36,6 +28,15 @@ struct ContentView: View {
         NavigationStack {
             // sticky header
             ScrollView(.horizontal, showsIndicators: false) {
+                let links: [(AnyView, String)] = [
+                    (AnyView(ScienceNewsView(articles: articles)), "Science News |"),
+                    (AnyView(ScienceMythsView()), "Science Myths |"),
+                    (AnyView(ScienceSparknotesView()), "Science Sparknotes |"),
+                    (AnyView(AboutUsView()), "About Us |"),
+                    (AnyView(GetInvolvedView()), "Get Involved |"),
+                    (AnyView(ContactUsView()), "Contact Us")
+                ]
+                
                 HStack {
                     ForEach(links, id: \.1) { view, label in
                         NavigationLink(destination: view) {
@@ -51,6 +52,7 @@ struct ContentView: View {
             ZStack(alignment: .top) {
                 ScrollView {
                     if showGridView {
+                        // grid view is kind of ugly so this will be left to rest.
                         LazyVGrid(columns: columns){
                             ForEach(articles) { article in
                                 NavigationLink {
@@ -59,10 +61,8 @@ struct ContentView: View {
                                     VStack {
                                         Image(article.id)
                                             .resizable()
-                                        
                                     }
                                 }
-                                
                             }
                         }
                     } else {
@@ -98,11 +98,12 @@ struct ContentView: View {
                 }
                 // toggle between grid and list view
                 .navigationTitle("Science, Translated")
-                .toolbar {
-                    Button(changeView) {
-                        showGridView.toggle()
-                    }
-                }
+                // since grid view is ugly this feature will be disabled till furhter notice
+//                .toolbar {
+//                    Button(changeView) {
+//                        showGridView.toggle()
+//                    }
+//                }
             }
         }
     }
