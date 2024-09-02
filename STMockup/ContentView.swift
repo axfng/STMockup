@@ -19,6 +19,14 @@ struct ContentView: View {
     
     let authors: [String: Author] = Bundle.main.decode("mockup_author.json")
     let articles: [Article] = Bundle.main.decode("mockup_article.json")
+    let links: [(AnyView, String)] = [
+        (AnyView(ScienceNewsView()), "Science News |"),
+        (AnyView(ScienceMythsView()), "Science Myths |"),
+        (AnyView(ScienceSparknotesView()), "Science Sparknotes |"),
+        (AnyView(AboutUsView()), "About Us |"),
+        (AnyView(GetInvolvedView()), "Get Involved |"),
+        (AnyView(ContactUsView()), "Contact Us")
+    ]
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -26,96 +34,74 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
-            ScrollView {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack {
-                        NavigationLink {
-                            ScienceNewsView()
-                        } label: {
-                            Text("Science News |")
-                        }
-                        NavigationLink {
-                            ScienceMythsView()
-                        } label: {
-                            Text("Science Myths |")
-                        }
-                        NavigationLink {
-                            ScienceSparknotesView()
-                        } label: {
-                            Text("Science Sparknotes |")
-                        }
-                        NavigationLink {
-                            AboutUsView()
-                        } label: {
-                            Text("About Us |")
-                        }
-                        NavigationLink {
-                            GetInvolvedView()
-                        } label: {
-                            Text("Get Involved |")
-                        }
-                        NavigationLink {
-                            ContactUsView()
-                        } label: {
-                            Text("Contact Us")
+            // sticky header
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack {
+                    ForEach(links, id: \.1) { view, label in
+                        NavigationLink(destination: view) {
+                            Text(label)
                         }
                     }
-                    .foregroundStyle(.black)
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 5)
                 }
-                
-                if showGridView {
-                    LazyVGrid(columns: columns){
+                .foregroundStyle(.black)
+                .padding(.horizontal, 18)
+                .padding(.vertical, 5)
+            }
+            
+            ZStack(alignment: .top) {
+                ScrollView {
+                    if showGridView {
+                        LazyVGrid(columns: columns){
+                            ForEach(articles) { article in
+                                NavigationLink {
+                                    ArticleView(article: article, authors: authors)
+                                } label: {
+                                    VStack {
+                                        Image(article.id)
+                                            .resizable()
+                                        
+                                    }
+                                }
+                                
+                            }
+                        }
+                    } else {
                         ForEach(articles) { article in
                             NavigationLink {
                                 ArticleView(article: article, authors: authors)
                             } label: {
                                 VStack {
-                                    Image(article.id)
-                                        .resizable()
+                                    Text(article.title)
+                                        .foregroundStyle(.black)
+                                        .font(.title2.bold())
+                                    
+                                    VStack {
+                                        Text(article.preview)
+                                            .sTCaption()
+                                        Image(article.id)
+                                            .resizable()
                                         
-                                }
-                            }
-
-                        }
-                    }
-                } else {
-                    ForEach(articles) { article in
-                        NavigationLink {
-                            ArticleView(article: article, authors: authors)
-                        } label: {
-                            VStack {
-                                Text(article.title)
-                                    .foregroundStyle(.black)
-                                    .font(.title2.bold())
-                                    
-                                VStack {
-                                    Text(article.preview)
-                                        .sTCaption()
-                                    Image(article.id)
-                                        .resizable()
-                                    
-                                    HStack {
-                                        Text(article.formattedPublishDate)
-                                        Spacer()
-                                        Text(article.id)
+                                        HStack {
+                                            Text(article.formattedPublishDate)
+                                            Spacer()
+                                            Text(article.id)
+                                        }
+                                        .font(.caption2)
+                                        .foregroundStyle(.black)
                                     }
-                                    .font(.caption2)
-                                    .foregroundStyle(.black)
+                                    .padding(.horizontal, 10)
                                 }
                                 .padding(.horizontal, 10)
-                           }
-                            .padding(.horizontal, 10)
+                            }
                         }
                     }
                 }
-            }
-            // toggle between grid and list view
-            .navigationTitle("Science, Translated")
-            .toolbar {
-                Button(changeView) {
-                    showGridView.toggle()
+                // toggle between grid and list view
+                .navigationTitle("Science, Translated")
+                .toolbar {
+                    Button(changeView) {
+                        showGridView.toggle()
+                    }
                 }
             }
         }
