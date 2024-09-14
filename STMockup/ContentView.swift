@@ -28,6 +28,7 @@ struct ContentView: View {
         NavigationStack {
             // sticky header
             ScrollView(.horizontal, showsIndicators: false) {
+                // links
                 let links: [(AnyView, String)] = [
                     (AnyView(ScienceNewsView(articles: articles)), "Science News |"),
                     (AnyView(ScienceMythsView(articles: articles)), "Science Myths |"),
@@ -36,7 +37,7 @@ struct ContentView: View {
                     (AnyView(GetInvolvedView()), "Get Involved |"),
                     (AnyView(ContactUsView()), "Contact Us")
                 ]
-                
+                // link loading
                 HStack {
                     ForEach(links, id: \.1) { view, label in
                         NavigationLink(destination: view) {
@@ -98,7 +99,7 @@ struct ContentView: View {
                 }
                 // toggle between grid and list view
                 .navigationTitle("Science, Translated")
-                // since grid view is ugly this feature will be disabled till furhter notice
+                // since grid view is ugly this feature will be disabled till further notice
 //                .toolbar {
 //                    Button(changeView) {
 //                        showGridView.toggle()
