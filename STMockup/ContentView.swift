@@ -4,6 +4,7 @@
 //
 //  Created by alfeng on 8/23/24.
 //
+//
 
 import SwiftUI
 
@@ -67,6 +68,13 @@ struct ContentView: View {
                             }
                         }
                     } else {
+                        VStack {
+                            NavigationLink {
+                                AuthView()
+                            } label: {
+                                Text("hiii")
+                            }
+                        }
                         ForEach(articles) { article in
                             NavigationLink {
                                 ArticleView(article: article, authors: authors)

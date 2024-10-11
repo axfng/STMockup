@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TabContainerView: View {
     var body: some View {
-        TabView{
+        TabView {
             Group {
                 ContentView()
                     .tabItem {
@@ -24,7 +24,6 @@ struct TabContainerView: View {
                         Label("Games", systemImage: "gamecontroller")
                     }
             }
-            
         }
     }
 }

@@ -18,90 +18,90 @@ struct WordleView: View {
     @State private var gameOver: Bool = false
         
     var body: some View {
-            VStack(spacing: 20) {
-                Text("Science Wordle")
-                    .font(.largeTitle.bold())
+        VStack(spacing: 20) {
+            Text("Science Wordle")
+                .font(.largeTitle.bold())
                 
-                Text("Guess the 5-letter science word!")
-                    .font(.subheadline)
+            Text("Guess the 5-letter science word!")
+                .font(.subheadline)
                 
-                ForEach(0..<6, id: \.self) { index in
-                    WordRowView(word: guessedWords[index], correctWord: currentWord)
-                        .padding(5)
-                }
+            ForEach(0..<6, id: \.self) { index in
+                WordRowView(word: guessedWords[index], correctWord: currentWord)
+                    .padding(5)
+            }
                 
-                if gameWon {
-                    Text("Congratulations! You guessed the word! 🎉")
-                        .font(.title2)
-                        .foregroundColor(.green)
-                } else if gameOver {
-                    Text("Game Over! The word was \(currentWord)")
-                        .font(.title2)
-                        .foregroundColor(.red)
-                } else {
-                    HStack {
-                        TextField("Enter guess", text: $currentGuess)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                            .frame(width: 150)
-                            .onChange(of: currentGuess) { newValue in
-                                if newValue.count > 5 {
-                                    currentGuess = String(newValue.prefix(5))
-                                }
+            if gameWon {
+                Text("Congratulations! You guessed the word! 🎉")
+                    .font(.title2)
+                    .foregroundColor(.green)
+            } else if gameOver {
+                Text("Game Over! The word was \(currentWord)")
+                    .font(.title2)
+                    .foregroundColor(.red)
+            } else {
+                HStack {
+                    TextField("Enter guess", text: $currentGuess)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 150)
+                        .onChange(of: currentGuess) { newValue in
+                            if newValue.count > 5 {
+                                currentGuess = String(newValue.prefix(5))
                             }
-                        
-                        Button(action: makeGuess) {
-                            Text("Guess")
-                                .padding(7)
-                                .background(Color.mint)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
                         }
-                        .disabled(currentGuess.count != 5)
+                        
+                    Button(action: makeGuess) {
+                        Text("Guess")
+                            .padding(7)
+                            .background(Color.mint)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .padding()
+                    .disabled(currentGuess.count != 5)
                 }
+                .padding()
+            }
                 
-                Button(action: resetGame) {
-                    Text("New Game")
-                        .padding(10)
-                        .background(Color.mint)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-            }
-            .padding()
-            .onAppear {
-                startNewGame()
+            Button(action: resetGame) {
+                Text("New Game")
+                    .padding(10)
+                    .background(Color.mint)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
             }
         }
-        
-        private func startNewGame() {
-            currentWord = words.randomElement() ?? "PLANT"
-            guessedWords = Array(repeating: "", count: 6)
-            currentGuess = ""
-            attemptIndex = 0
-            gameWon = false
-            gameOver = false
-        }
-        
-        private func makeGuess() {
-            if attemptIndex < 6 {
-                guessedWords[attemptIndex] = currentGuess.uppercased()
-                if currentGuess.uppercased() == currentWord {
-                    gameWon = true
-                } else {
-                    attemptIndex += 1
-                    if attemptIndex >= 6 {
-                        gameOver = true
-                    }
-                }
-                currentGuess = ""
-            }
-        }
-        
-        private func resetGame() {
+        .padding()
+        .onAppear {
             startNewGame()
         }
+    }
+        
+    private func startNewGame() {
+        currentWord = words.randomElement() ?? "PLANT"
+        guessedWords = Array(repeating: "", count: 6)
+        currentGuess = ""
+        attemptIndex = 0
+        gameWon = false
+        gameOver = false
+    }
+        
+    private func makeGuess() {
+        if attemptIndex < 6 {
+            guessedWords[attemptIndex] = currentGuess.uppercased()
+            if currentGuess.uppercased() == currentWord {
+                gameWon = true
+            } else {
+                attemptIndex += 1
+                if attemptIndex >= 6 {
+                    gameOver = true
+                }
+            }
+            currentGuess = ""
+        }
+    }
+        
+    private func resetGame() {
+        startNewGame()
+    }
 }
 
 struct WordRowView: View {

@@ -16,6 +16,7 @@ struct ArticleView: View {
     let article: Article
     let contributors: [contributor]
     
+    
     var body: some View {
         NavigationStack {
             ScrollView {

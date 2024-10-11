@@ -6,5 +6,7 @@
 	<array>
 		<string>PlayfairDisplay-Regular.ttf</string>
 	</array>
+	<key>CFBundleIdentifier</key>
+	<string></string>
 </dict>
 </plist>
